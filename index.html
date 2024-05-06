@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-black">
+    <header class="flex justify-between">
+        <div class="header">
+        <h1 class="text-yellow-400 text-2xl">Weather App</h1>
+        </div>
+        <div class=""id="nav">
+            <ul class="flex">
+                <li class="text-white px-10 text-xl"><a href="#">Home</a></li>
+                <li class="text-white px-10 text-xl"><a href="#">About</a></li>
+                <li class="text-white px-10 text-xl"><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="flex justify-center overflow-hidden ml-64 w-1200 rounded-2xl " id="container">
+            <div class="w-3/12 p-5 flex flex-col justify-between h-800 bg-white opacity-90 pt-5 pr-5" id="sidebar">
+            <div class="inner">
+                <form action="" class="flex items-center justify-between mb-8 mt-5 relative" id="search">
+                    <input type="search" class="w-full h-10 text-sm text-black border border-black py-4 px-2 rounded-l-lg outline-none" placeholder="Search..">
+                    <button class="bg-blue-500 hover:bg-blue-400 w-10 h-10 cursor-pointer border-transparent rounded-r-lg" id="text"><i class="fa-solid fa-magnifying-glass" style="color: white;"></i></button>
+                </form>
+                <div class="w-full h-40 text-center mt-5 mb-24" id="weather-icon">
+                  <img src="icon/cloudy.png" class="w-4/5 object-cover" width="100%">
+                </div>
+                <div class="flex" id="temp">
+                    <h1 class="font-hairline leading-none text-6xl" id="temp2">0</h1>
+                    <span class="-mt-2 block text-3xl" id="temp-unit">℃</span>
+                </div>
+                <div class="date-time">
+                    <p id="date-time">Monday, 12:00</p>
+                </div>
+                <div class="w-full h-px my-5 bg-gray-400"id="divide"></div>
+                <div class="text-xs" id="condition">
+                    <div class="flex items-center gap-3" id="con">
+                        <i class="fas fa-cloud"></i>
+                        <div class="cond" id="cond">Condition</div>
+                    </div>
+                    <div class="flex items-center mt-2 gap-3" id="rain">
+                        <i class="fas fa-tint"></i>
+                        <div class="mb-1 ml-1.5"id="rain">perc - 0%
+                    </div>
+                    </div>
+                    </div>
+            </div>
+            <div class="flex items-center text-sm gap-3"id="location">
+                <div class="locate">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="location-txt">
+                    <p class="location">location</p>
+                </div>
+        </div>
+            </div>
+            <div class="w-full relative pb-24 py-5 px-10 min-w-96 bg-slate-300" id="main">
+                <nav class="flex justify-between align-middle">
+                    <ul class="flex gap-5 align-middle"id="options">
+                        <button class="hourly bg-transparent text-base font-semibold cursor-pointer capitalize text-gray-400">Today</button>
+                        <button class="hourly bg-transparent text-base font-semibold cursor-pointer capitalize text-blue-600" id="week active">week</button>
+                    </ul>
+                    <ul class="flex gap-5 align-middle"id="options units">
+                        <button class="w-10 h-10 rounded-full font-semibold bg-white hover:bg-black hover:text-white" id="celcius active">℃</button>
+                        <button class="hover:bg-black hover:text-white w-10 h-10 rounded-full font-semibold  bg-white text-black"id="farenheit">℉</button>
+                    </ul>
+                    
+                </nav>
+                <div class="cards" id="weather-cards">
+                    <div class="flex mt-12 gap-5 w-24 h-40 text-black bg-white text-center rounded-3xl px-3 flex-col justify-between" id="card">
+                    <h2 class="font-semibold text-sm"id="day-name">Monday</h2>
+                    <div class="w-3/4 margin"id="card-icon">
+                        <img src="icon/icons8-sun-144.png" width="100%" alt="" />    
+                    </div>
+                    <div class="text-xl font-semibold text-gray-400 flex items-center justify-center" id="day-temp">
+                        <h2 class="temp">32</h2>
+                        <span class="temp-unit">℃</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap mt-12 gap-5"id="highlights">
+                    <h2 class="w-full text-xl font-semibold capitalize"id="heading">Today's highlights</h2>
+                    <div class="cards">
+                        <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2" id="card2">
+                            <h4 class="text-gray-400 font-semibold" id="card-heading">UV index</h4>
+                            <div class="mt-5" id="content">
+                                <p class="text-center text-3xl" id="uv-index">0</p>
+                                <p class="text-xs mt-5 text-left" id="uv-text">Low</p>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">
+                            <h4 class="text-gray-400 font-semibold" id="card-heading">Wind Status</h4>
+                            <div class="mt-5" id="content">
+                                <p class="text-center text-3xl" id="wind-speed">0</p>
+                                <p class="text-xs mt-5 text-left" id="uv-text">Low</p>
+                            </div>
+                        </div>
+                        <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">
+                            <h4 class="text-gray-400 font-semibold" id="card-heading">Sunrise & Sunset</h4>
+                            <div class="mt-5" id="content">
+                                <p  class="text-center text-3xl" id="sunrise">0</p>
+                                <p class="text-xs mt-5 text-left" id="sunset">Low</p>
+                            </div>
+                        </div>
+                        <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">
+                            <h4 class="text-gray-400 font-semibold" id="card-heading">Humidity</h4>
+                            <div class="mt-5" id="content">
+                                <p class="text-center text-3xl" id="humidity">0</p>
+                                <p class="text-xs mt-5 text-left" id="humidity-status">Low</p>
+                            </div>
+                        </div>
+                        <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">
+                            <h4 class="text-gray-400 font-semibold" id="card-heading">Visibility</h4>
+                            <div class="mt-5" id="content">
+                                <p class="text-center text-3xl" id="visiblity">0</p>
+                                <p class="text-xs mt-5 text-left" id="visibility-status">Low</p>
+                            </div>
+                        </div>  
+                        <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">
+                            <h4 class="text-gray-400 font-semibold" id="card-heading">Air Quality</h4>
+                            <div class="mt-5" id="content">
+                                <p class="text-center text-3xl" id="air-quality">0</p>
+                                <p class="text-xs mt-5 text-left" id="air-status">Low</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>

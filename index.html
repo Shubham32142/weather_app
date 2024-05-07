@@ -26,11 +26,11 @@
             <div class="w-3/12 p-5 flex flex-col justify-between h-800 bg-white opacity-90 pt-5 pr-5" id="sidebar">
             <div class="inner">
                 <form action="" class="flex items-center justify-between mb-8 mt-5 relative" id="search">
-                    <input type="search" class="w-full h-10 text-sm text-black border border-black py-4 px-2 rounded-l-lg outline-none" placeholder="Search..">
+                    <input type="search" class="w-full h-10 text-sm text-black border border-black py-4 px-2 rounded-l-lg outline-none" id="search-city" placeholder="Search..">
                     <button class="bg-blue-500 hover:bg-blue-400 w-10 h-10 cursor-pointer border-transparent rounded-r-lg" id="text"><i class="fa-solid fa-magnifying-glass" style="color: white;"></i></button>
                 </form>
                 <div class="w-full h-40 text-center mt-5 mb-24" id="weather-icon">
-                  <img src="icon/cloudy.png" class="w-4/5 object-cover" width="100%">
+                  <img src="icon/sun.png" class="w-4/5 object-cover" id="weather-inner" width="100%">
                 </div>
                 <div class="flex" id="temp">
                     <h1 class="font-hairline leading-none text-6xl" id="temp2">0</h1>
@@ -80,7 +80,7 @@
                         <img src="icon/icons8-sun-144.png" width="100%" alt="" />    
                     </div>
                     <div class="text-xl font-semibold text-gray-400 flex items-center justify-center" id="day-temp">
-                        <h2 class="temp">32</h2>
+                        <h2 class="temp">0</h2>
                         <span class="temp-unit">℃</span>
                     </div>
                     </div>
@@ -100,7 +100,7 @@
                             <h4 class="text-gray-400 font-semibold" id="card-heading">Wind Status</h4>
                             <div class="mt-5" id="content">
                                 <p class="text-center text-3xl" id="wind-speed">0</p>
-                                <p class="text-xs mt-5 text-left" id="uv-text">Low</p>
+                                <p class="text-xs mt-5 text-left" id="uv-text">km/h</p>
                             </div>
                         </div>
                         <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">
@@ -120,8 +120,8 @@
                         <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">
                             <h4 class="text-gray-400 font-semibold" id="card-heading">Visibility</h4>
                             <div class="mt-5" id="content">
-                                <p class="text-center text-3xl" id="visiblity">0</p>
-                                <p class="text-xs mt-5 text-left" id="visibility-status">Low</p>
+                                <p class="text-center text-3xl" id="visibility">0</p>
+                                <p class="text-xs mt-5 text-left" id="visibility-status">meters</p>
                             </div>
                         </div>  
                         <div class="w-64 h-32 text-black bg-white flex flex-col rounded-2xl px-3 py-2"id="card2">

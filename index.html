@@ -9,20 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body class="bg-black">
-    <header class="flex justify-between">
+    <header class="flex items-center p-2 justify-between" id="header-container">
         <div class="header">
         <h1 class="text-yellow-400 text-2xl">Weather App</h1>
         </div>
-        <div class=""id="nav">
-            <ul class="flex">
-                <li class="text-white px-10 text-xl"><a href="#">Home</a></li>
-                <li class="text-white px-10 text-xl"><a href="#">About</a></li>
-                <li class="text-white px-10 text-xl"><a href="#">Contact</a></li>
+        <div class="weather-menu hidden" id="menu-btn">
+           <button class="menubtn"><i class="fa-solid fa-bars fa-xl" style="color: white;" class="hidden" id="menu"></i></button>
+        </div>
+        <div class="hidden2"id="nav">
+            <ul class="flex" id="nav2">
+                <li class="text-white px-10 text-xl hover:underline hover:text-sky-500"><a href="index.html" class="scr">Home</a></li>
+                <li class="text-white px-10 text-xl hover:underline hover:text-sky-500"><a href="#about">About</a></li>
+                <li class="text-white px-10 text-xl hover:underline hover:text-sky-500"><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </header>
     <main>
-        <div class="flex justify-center overflow-hidden ml-64 w-1200 rounded-2xl " id="container">
+        <div class="flex justify-center overflow-hidden ml-64 w-1200 rounded-2xl" id="container">
             <div class="w-3/12 p-5 flex flex-col justify-between h-800 bg-white opacity-90 pt-5 pr-5" id="sidebar">
             <div class="inner">
                 <form action="" class="flex items-center justify-between mb-8 mt-5 relative" id="search">
@@ -31,8 +34,9 @@
                     <select id="city-dropdown"><option value=""></option></select>
                     </div>
                     <button class="bg-blue-500 hover:bg-blue-400 w-10 h-10 cursor-pointer border-transparent rounded-r-lg" id="text"><i class="fa-solid fa-magnifying-glass" style="color: white;"></i></button>
-                   
                 </form>
+                <div class="w-full h-px my-5 bg-gray-400 flex justify-center cursor-pointer">Or</div>
+                <button class="bg-blue-400 hover:bg-blue-200 w-full h-10 rounded-lg text-white" id="location-btn">Current location</button>
                 <div class="w-full h-40 text-center mt-5 mb-24" id="weather-icon">
                   <img src="icon/sun.png" class="w-4/5 object-cover" id="weather-inner" width="100%">
                 </div>
@@ -132,6 +136,25 @@
                 </div>
             </div>
         </div>
+        <section>
+        <div id="about" class="p-6">
+            <h1 class="text-white flex justify-center p-6 mr-10 text-2xl underline">About Weather App</h1>
+            <p class="text-white w-6/12 margin">Welcome to Weather App, your trusted source for accurate and reliable weather forecasts.
+                                    Our app is designed to provide you with essential weather information to help you plan your
+                                    day and stay prepared for any weather conditions.</p>
+        </div>
+        </section>
+        <contact>
+        <div id="contact">
+            <h1 class="text-white flex justify-center p-6 mr-10 text-2xl underline"> Contact me!</h1>
+            <p class="text-white w-6/12 margin mb-8">Have questions, feedback, or suggestions? We'd love to hear from you! Contact our support team via email at <a href="#" class="text-sky-600 underline">support@WeatherApp.com</a> or connect with us on social media.
+            Your input helps us improve Weather App and better serve our users.
+            </p>
+            <p class="text-white w-6/12 margin">Thank you for choosing Weather App. We're committed to helping you stay ahead of the weather and make the most of every day. Stay safe, and enjoy using our app!
+            </p>
+        </div>
+        </contact>
+
     </main>
     <script type="text/javascript" src="index.js"></script>
 </body>

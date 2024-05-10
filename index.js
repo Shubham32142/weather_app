@@ -1,4 +1,15 @@
-// const temp = document.querySelector('.temp');
+document.addEventListener("DOMContentLoaded", function() {
+    const menuBtn = document.querySelector(".menubtn");
+    const dropdownContent = document.querySelector("#nav");
+
+    menuBtn.addEventListener("click", function() {
+        dropdownContent.classList.toggle("hidden2");
+    
+        
+     
+    });
+});
+
 const weatherCard = document.querySelector('#weather-cards');
 const apiKey = "6df3f95fbc9eb9deb9e6dac8d39a5a9c";
 const url = "https://api.openweathermap.org/data/2.5/weather?&q=";
@@ -11,7 +22,6 @@ const farenheitbtn = document.querySelector('#farenheit');
 const celciusBtn = document.querySelector('#celcius\\ active');
 const weekBtn = document.querySelector('#week\\ active');
 
-
 let hourlyorWeek = "Week";
 
 async function checkAPI(city, units='metric'){
@@ -19,7 +29,8 @@ async function checkAPI(city, units='metric'){
 const api = await fetch(url + city + `&units=${units}&appid=${apiKey}`);
 const data = await api.json();
 console.log(data);
-return data;
+
+    return data;
     }catch(error){
         console.error('Error fetching data:', error);
         throw error;
@@ -27,12 +38,16 @@ return data;
 
 }
 
-async function checkAPI2(city, units = 'metric', hourlyorWeek) {
+async function checkAPI2(city, units = 'metric') {
     try {
         const response = await fetch(`${url2}${city}?unitGroup=${units}&key=${apiKey2}`);
+        if(!response.ok){
+            alert('location not found' + '\n Provide more detais EX.(City, Country)');
+        }
         const data = await response.json();
         console.log(data);
-        return data;
+    
+            return data;
     }catch (error) {
         console.error('Error fetching weather data:', error);
         throw error; 
@@ -41,17 +56,16 @@ async function checkAPI2(city, units = 'metric', hourlyorWeek) {
 
 //To update the UI according to the API
 function updateUI(data, data2, hourlyorWeek, unit) {
-    document.querySelector('.location').innerHTML = data.name + ', ' + data.sys.country;
-    // document.querySelector('.temp').innerHTML = Math.round(data.main.temp);
+    document.querySelector('.location').innerHTML = `${data.name} , ${data.sys.country}`;
     document.querySelector('#temp2').innerHTML = Math.round(data.main.temp);
-    document.querySelector('#humidity').innerHTML = data.main.humidity + "%";
+    document.querySelector('#humidity').innerHTML = `${data.main.humidity}%`;
     document.querySelector('#wind-speed').innerHTML = data.wind.speed;
     document.querySelector('#visibility').innerHTML = data2.currentConditions.visibility;
     document.querySelector('#visibility-status').innerHTML = visibilityLevel(data2.currentConditions.visibility);
     document.querySelector('#cond').innerHTML = data.weather[0].main;
     const iconSrc = setWeatherIcon(data.weather[0].main);
     weatherIcon.src = iconSrc;
-    document.querySelector('#date-time').innerHTML =  formatDateTime(data2.currentConditions.datetimeEpoch, 0) + data2.currentConditions.datetime;
+    document.querySelector('#date-time').innerHTML =  `${formatDateTime(data2.currentConditions.datetimeEpoch, 0)}${data2.currentConditions.datetime}`;
     document.querySelector('#air-quality').innerHTML = data.wind.deg;
     document.querySelector('#air-status').innerHTML = airQualityLevel(data.wind.deg);
     document.querySelector('#sunrise').innerHTML = onlyTime(data2.currentConditions.sunrise);
@@ -72,19 +86,13 @@ function updateUI(data, data2, hourlyorWeek, unit) {
 function updateForecast(data2, type, icons, unit) { 
     document.querySelector('#weather-cards').innerHTML = "";
     let day = 1;
-    let numCards = 0;
-    if (type === "day") {
-        numCards = 24;
-    } else {
-        numCards = 7;
-    }
+    const numCards = (type == "day")? 24 : 7;
+
+
     for (let i = 0; i < numCards; i++) {
         let card = document.createElement("div");
         card.classList.add("card");
-        let dayName = getHour(data2[day].datetime);
-        if (type === "week") {
-            dayName = getDayName(data2[day].datetime);
-        }
+        const dayName = (type === "week") ? getDayName(data2[day].datetime) : getHour(data2[day].datetime);
         let dayTemp = data2[day].temp;
         let icon = data2[day].icon;
         let iconSrc = setWeatherIcon2(icon);
@@ -163,7 +171,12 @@ async function fetchWeatherDataByGeolocation() {
         console.error('Error fetching weather data by geolocation:', error);
     }
 }
-fetchWeatherDataByGeolocation();
+
+
+const locationBtn = document.querySelector("#location-btn");
+locationBtn.addEventListener("click", fetchWeatherDataByGeolocation);
+
+
 async function fetchCityByCoordinates(latitude, longitude) {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`);
@@ -174,10 +187,10 @@ async function fetchCityByCoordinates(latitude, longitude) {
         throw error;
     }
 }
-//hourly button
 
 
 
+//to check air quality
 function airQualityLevel(aqi) {
     if (aqi < 51) {
         return "Good";
@@ -209,6 +222,8 @@ function setWeatherIcon(weatherCondition) {
             
     }
 }
+
+
 function setWeatherIcon2(weatherCondition) {
     switch (weatherCondition) {
         case 'rain':
@@ -240,6 +255,7 @@ function setHumidityStatus(humidity) {
     }
 }
 
+
 //Function to set date and time
 function formatDateTime() {
     let date = new Date();
@@ -254,7 +270,6 @@ function onlyTime(time) {
 let hour  = time.split(":")[0];
 let minute = time.split(":")[1];
 let amPm = hour >= 12 ? "pm" : "am";
-// hour = hour&12;
 hour = hour ? hour : 12;
 hour = hour < 10 ? hour : hour;
 minute = minute < 10 ?  minute : minute;
@@ -320,10 +335,9 @@ searchBtn.addEventListener('click', (event) => {
     }
 });
 
-// Function to display the list of searched cities (optional)
+
 function displaySearchedCities(searchedCities) {
     const dropdown = document.querySelector('#city-dropdown');
-    // dropdown.innerHTML = ''; // Clear the existing list
 
     // Create list items for each searched city
     searchedCities.forEach(city => {
@@ -334,7 +348,9 @@ function displaySearchedCities(searchedCities) {
 }
 const dropdown = document.querySelector('#city-dropdown');
 dropdown.addEventListener('change', function() {
+
     // Set the value of the search input to the selected option's value
+
     searchCity.value = dropdown.value;
     dropdown.value = '';
   });

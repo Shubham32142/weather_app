@@ -27,7 +27,11 @@
             <div class="inner">
                 <form action="" class="flex items-center justify-between mb-8 mt-5 relative" id="search">
                     <input type="search" class="w-full h-10 text-sm text-black border border-black py-4 px-2 rounded-l-lg outline-none" id="search-city" placeholder="Search..">
+                    <div class="dropbtn">
+                    <select id="city-dropdown"><option value=""></option></select>
+                    </div>
                     <button class="bg-blue-500 hover:bg-blue-400 w-10 h-10 cursor-pointer border-transparent rounded-r-lg" id="text"><i class="fa-solid fa-magnifying-glass" style="color: white;"></i></button>
+                   
                 </form>
                 <div class="w-full h-40 text-center mt-5 mb-24" id="weather-icon">
                   <img src="icon/sun.png" class="w-4/5 object-cover" id="weather-inner" width="100%">
@@ -64,25 +68,18 @@
             <div class="w-full relative pb-24 py-5 px-10 min-w-96 bg-slate-300" id="main">
                 <nav class="flex justify-between align-middle">
                     <ul class="flex gap-5 align-middle"id="options">
-                        <button class="hourly bg-transparent text-base font-semibold cursor-pointer capitalize text-gray-400">Today</button>
+                        <!-- <button class="hourly bg-transparent text-base font-semibold cursor-pointer capitalize text-gray-400" id="hourly">Today</button> -->
                         <button class="hourly bg-transparent text-base font-semibold cursor-pointer capitalize text-blue-600" id="week active">week</button>
                     </ul>
                     <ul class="flex gap-5 align-middle"id="options units">
-                        <button class="w-10 h-10 rounded-full font-semibold bg-white hover:bg-black hover:text-white" id="celcius active">℃</button>
-                        <button class="hover:bg-black hover:text-white w-10 h-10 rounded-full font-semibold  bg-white text-black"id="farenheit">℉</button>
+                        <button class="w-10 h-10 rounded-full font-semibold bg-black text-white" id="celcius active">℃</button>
+                        <!-- <button class="hover:bg-black hover:text-white w-10 h-10 rounded-full font-semibold  bg-white text-black"id="farenheit">℉</button> -->
                     </ul>
                     
                 </nav>
-                <div class="cards" id="weather-cards">
+                <div class="cards flex gap-5" id="weather-cards">
                     <div class="flex mt-12 gap-5 w-24 h-40 text-black bg-white text-center rounded-3xl px-3 flex-col justify-between" id="card">
-                    <h2 class="font-semibold text-sm"id="day-name">Monday</h2>
-                    <div class="w-3/4 margin"id="card-icon">
-                        <img src="icon/icons8-sun-144.png" width="100%" alt="" />    
-                    </div>
-                    <div class="text-xl font-semibold text-gray-400 flex items-center justify-center" id="day-temp">
-                        <h2 class="temp">0</h2>
-                        <span class="temp-unit">℃</span>
-                    </div>
+                    
                     </div>
                 </div>
                 <div class="flex flex-wrap mt-12 gap-5"id="highlights">

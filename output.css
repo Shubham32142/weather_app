@@ -776,3 +776,26 @@ video {
 .margin{
   margin: 0 auto;
 }
+.card{
+  margin: auto;
+  margin-top: 48px;
+  width: 90px;
+  height: 130px;
+  color: black;
+  background-color: white;
+  text-align: center;
+  border-radius: 24px;
+  padding: 12px 10px;
+  justify-content: space-between;
+}
+#city-dropdown{
+  position: absolute;
+  right: 33px;
+  bottom: 1px;
+  height: 90%;
+  outline: none;
+  overflow: hidden;
+  cursor: pointer;
+  width: 10%;
+  background: none;
+}

@@ -784,11 +784,18 @@ html{
   width: 90px;
   height: 130px;
   color: black;
-  background-color: white;
+  color: white;
   text-align: center;
+  backdrop-filter: blur(10px);
   border-radius: 24px;
   padding: 12px 10px;
   justify-content: space-between;
+}
+.card h2{
+  padding-bottom: 5px;
+}
+.card .temp{
+  padding-top: 5px;
 }
 #city-dropdown{
   position: absolute;
@@ -899,7 +906,7 @@ html{
     padding: 1rem;
   }
   #main {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     padding: 1rem;
   }
@@ -919,6 +926,7 @@ html{
   height: 100vh;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  
 }
 
 #nav a {

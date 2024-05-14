@@ -208,17 +208,17 @@ function airQualityLevel(aqi) {
 function setWeatherIcon(weatherCondition) {
     switch (weatherCondition) {
         case 'Rain':
-            return "icon/rainy-day.png";
+            return "icon/rain.gif";
         case 'Clear':
-            return "icon/sun.png";
+            return "icon/sunny.gif";
         case 'Clouds':
-            return "icon/cloudy.png";
+            return "icon/cloudy.gif";
         case 'Haze':
             return "icon/hazy.png";
         case 'Mist':
             return "icon/Mist.png";
         default:
-            return "icon/sun.png";
+            return "icon/sunny.gif";
             
     }
 }
@@ -227,17 +227,17 @@ function setWeatherIcon(weatherCondition) {
 function setWeatherIcon2(weatherCondition) {
     switch (weatherCondition) {
         case 'rain':
-            return "icon/rainy-day.png";
+            return "icon/rain.gif";
         case 'Clear':
-            return "icon/sun.png";
+            return "icon/sunny.gif";
         case 'partly-cloudy-day':
-            return "icon/cloudy.png";
+            return "icon/cloudy.gif";
         case 'Haze':
             return "icon/hazy.png";
         case 'Mist':
             return "icon/Mist.png";
         default:
-            return "icon/sun.png";
+            return "icon/sunny.gif";
             
     }
 }
